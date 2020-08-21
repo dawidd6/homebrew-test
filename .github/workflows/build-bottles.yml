@@ -1,9 +1,9 @@
 name: Build bottles
 
-on:
-  pull_request:
-    paths:
-      - 'Formula/*'
+on: workflow_dispatch
+  #  pull_request:
+  #  paths:
+  #    - 'Formula/*'
 
 jobs:
   build:

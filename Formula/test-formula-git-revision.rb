@@ -10,10 +10,14 @@ class TestFormulaGitRevision < Formula
   bottle :unneeded
 
   def install
-    system "sleep", "1"
+    (buildpath/"test").write <<~EOS
+      test
+    EOS
+
+    share.install "test"
   end
 
   test do
-    system "sleep", "1"
+    sleep 1
   end
 end

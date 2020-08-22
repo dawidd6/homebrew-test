@@ -22,7 +22,7 @@ jobs:
           git fetch https://github.com/dawidd6/homebrew-test-bot github-releases
           git checkout --force --prune FETCH_HEAD
       - name: Build bottles
-        run: brew test-bot --only-formulae --verbose
+        run: brew test-bot --only-formulae --verbose ${{github.event.inputs.formula}}
       - name: Upload bottles
         if: always()
         uses: actions/upload-artifact@v2

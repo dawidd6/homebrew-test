@@ -7,8 +7,6 @@ class TestFormulaGitRevision < Formula
   license "MIT"
   head "https://github.com/Debian/dh-make-golang.git"
 
-  bottle :unneeded
-
   def install
     (buildpath/"test").write <<~EOS
       test

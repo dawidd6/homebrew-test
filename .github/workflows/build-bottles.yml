@@ -1,9 +1,12 @@
 name: Build bottles
 
-on: workflow_dispatch
-  #  pull_request:
-  #  paths:
-  #    - 'Formula/*'
+on:
+  workflow_dispatch:
+    inputs:
+      formula:
+        description: Formula name
+        required: false
+        default: test-formula-git-revision
 
 jobs:
   build:
@@ -14,8 +17,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
       - name: Build bottles
         env:
-          ROOT_URL: https://github.com/dawidd6/homebrew-test/releases/download/bottles
-        run: brew test-bot --only-formulae --verbose --root-url=$ROOT_URL
+        run: brew test-bot --only-formulae --verbose
       - name: Upload bottles
         if: always()
         uses: actions/upload-artifact@v2

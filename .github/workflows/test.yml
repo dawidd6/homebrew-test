@@ -13,4 +13,4 @@ jobs:
       - run: |
           echo test > test
           git add test
-          git diff HEAD --exit-code
+          git diff --exit-code

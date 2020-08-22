@@ -15,9 +15,13 @@ jobs:
       - name: Set up Homebrew
         id: setup
         uses: Homebrew/actions/setup-homebrew@master
+      - name: Hack brew
+        run: |
+          cd $(brew --repo)
+          git fetch https://github.com/dawidd6/brew no-install-gems-first
+          git checkout --force FETCH_HEAD
       - name: Hack test-bot
         run: |
-          brew tap homebrew/test-bot
           cd $(brew --repo homebrew/test-bot)
           git fetch https://github.com/dawidd6/homebrew-test-bot github-releases
           git checkout --force FETCH_HEAD

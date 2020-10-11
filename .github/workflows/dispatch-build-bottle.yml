@@ -20,8 +20,8 @@ jobs:
   bottle:
     runs-on: ubuntu-latest
     steps:
-      - name: Event inputs
-        run: echo ${{github.event.inputs}}
+      - name: Event
+        run: cat $GITHUB_EVENT_PATH
 
       - name: Upload
         if: github.event.inputs.upload

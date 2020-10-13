@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - if: ''
-        run: |
-          echo true
+      - run: ls -A
+      - uses: actions/checkout@v2
+        with:
+          repository: dawidd6/lazygit-debian
+      - run: ls -A

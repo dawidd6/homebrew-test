@@ -12,8 +12,14 @@ jobs:
     steps:
       - run: gcc --version
       - run: which -a gcc
+  cancel:
+    runs-on: ubuntu-18.04
+    if: true
+    steps:
+      - run: gcc --version
+      - run: which -a gcc
   notcancel:
     needs: cancel
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - run: echo run

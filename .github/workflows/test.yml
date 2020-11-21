@@ -7,6 +7,7 @@ jobs:
   wheezy_tests:
     runs-on: ubuntu-latest
     steps:
+      - run: brew update-reset
       - name: Run Docker
         env:
           HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1

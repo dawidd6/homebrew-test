@@ -19,7 +19,9 @@ jobs:
       - run: gcc --version
       - run: which -a gcc
   notcancel:
-    needs: cancel1 || cancel2
+    needs:
+      - cancel1
+      - cancel2
     runs-on: ubuntu-latest
     steps:
       - run: echo run

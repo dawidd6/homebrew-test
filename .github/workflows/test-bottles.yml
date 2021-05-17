@@ -1,11 +1,19 @@
-name: Test bottles
+name: Test
 
-on: workflow_dispatch
+on: push
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      HOMEBREW_COLOR: 1
     steps:
-      - run: brew install $GITHUB_REPOSITORY/clone-org
+      - id: test1
+        run: echo
+
+      - id: test2
+        run: echo "::set-output name=key::value"
+
+      - if: ${{steps.test1.outputs.key}}
+        run: echo ${{steps.test1.outputs.key}}
+
+      - if: ${{steps.test2.outputs.key}}
+        run: echo ${{steps.test2.outputs.key}}

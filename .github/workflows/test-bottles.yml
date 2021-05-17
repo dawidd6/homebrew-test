@@ -9,7 +9,7 @@ jobs:
       - id: test
         uses: iMichka/actions/wait-for-idle-runner@octokit
         with:
-          github_token: ${{github_token}}
+          github_token: ${{github.token}}
           runner_name: name
           repository_name: repo
 

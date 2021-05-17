@@ -10,10 +10,16 @@ jobs:
         run: echo
 
       - id: test2
-        run: echo "::set-output name=key::value"
+        run: echo "::set-output name=key::true"
+
+      - id: test3
+        run: echo "::set-output name=key::false"
 
       - if: ${{steps.test1.outputs.key}}
         run: echo ${{steps.test1.outputs.key}}
 
       - if: ${{steps.test2.outputs.key}}
         run: echo ${{steps.test2.outputs.key}}
+
+      - if: ${{steps.test3.outputs.key}}
+        run: echo ${{steps.test3.outputs.key}}

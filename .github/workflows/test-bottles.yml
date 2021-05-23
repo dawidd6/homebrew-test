@@ -7,12 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: test
-        uses: iMichka/actions/wait-for-idle-runner@octokit
+        uses: GauthamGoli/actions/dispatch-build-bottle@dispatch-build-bottle-composite
         with:
-          github_token: ${{github.token}}
-          runner_name: name
-          repository_name: repo
-
-      - run: |
-          echo ${{steps.test.outputs.runner-found}}
-          echo ${{steps.test.outputs.runner-idle}}
+          formula: hello
+          issue: 0
+          sender: me

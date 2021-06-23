@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          shopt -s expand_aliases
           alias brew="apt"
       - run: alias
       - run: brew --version

@@ -10,6 +10,6 @@ jobs:
     steps:
       - run: |
           echo 'alias brew="apt"' >> ~/.profile
-          #echo 'alias brew="apt"' | sudo tee -a /etc/profile
+          echo 'alias brew="apt"' | sudo tee -a /etc/profile
       - run: alias
       - run: brew --version

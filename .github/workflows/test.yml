@@ -12,4 +12,5 @@ jobs:
           shopt -s expand_aliases
           alias brew="apt"
       - run: alias
+        working-directory: bottles
       - run: brew --version

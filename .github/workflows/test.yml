@@ -1,21 +1,12 @@
-name: Wheezy CI
+name: TEST
+
 on:
   push:
     branches:
       - master
 jobs:
-  wheezy_tests:
+  test:
     runs-on: ubuntu-latest
-    env:
-      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
     steps:
-      - run: brew update-reset
-      - name: Run Docker
-        env:
-          HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
-          HOMEBREW_DEVELOPER: 1
-          HOMEBREW_ON_DEBIAN7: 1
-          HOMEBREW_CURL_PATH: "/usr/bin/curl"
-          HOMEBREW_GIT_PATH: "/usr/bin/git"
-        run: |
-          docker run -v /home/linuxbrew:/home/linuxbrew --env-file <(env | grep 'HOMEBREW\|GITHUB') homebrew/debian7:latest bash -c 'brew config'
+      - run: echo 'alias brew="apt"' > ~/.profile
+      - run: brew --version

@@ -8,6 +8,6 @@ jobs:
   test:
     runs-on: macos-10.15
     container:
-      image: alpine
+      image:
     steps:
       - run: uname

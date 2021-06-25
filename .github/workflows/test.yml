@@ -6,11 +6,8 @@ on:
       - master
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-10.15
+    container:
+      image: alpine
     steps:
-      - run: |
-          shopt -s expand_aliases
-          alias brew="apt"
-      - run: alias
-        working-directory: bottles
-      - run: brew --version
+      - run: uname

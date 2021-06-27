@@ -6,8 +6,11 @@ on:
       - master
 jobs:
   test:
-    runs-on: macos-10.15
-    container:
-      image:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - 
     steps:
       - run: uname

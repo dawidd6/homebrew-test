@@ -4,13 +4,12 @@ on:
   push:
     branches:
       - master
+
+concurrency:
+  group: ''
+
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-          - 
+    runs-on: ubuntu-latest
     steps:
-      - run: uname
+      - run: sleep 30m

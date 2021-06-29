@@ -5,11 +5,8 @@ on:
     branches:
       - master
 
-concurrency:
-  group: ''
-
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 30m
+      - run: docker run --help

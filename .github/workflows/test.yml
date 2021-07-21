@@ -9,5 +9,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - run: sudo loginctl enable-linger $USER
+      - run: sudo env
       - run: ps aux | grep systemd
+      - run: env
+      - run: sudo apt install tree
+      - run: tree /run
       - run: systemctl --user status

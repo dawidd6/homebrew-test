@@ -9,7 +9,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo loginctl enable-linger $USER
+      - run: loginctl enable-linger $USER
+      - run: sleep 5s
       - run: id -u
       - run: sudo env
       - run: ps aux | grep systemd

@@ -9,4 +9,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: docker run --help
+      - run: ps aux | grep systemd
+      - run: systemctl --user status

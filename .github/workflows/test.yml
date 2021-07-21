@@ -10,9 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo loginctl enable-linger $USER
+      - run: id -u
       - run: sudo env
       - run: ps aux | grep systemd
-      - run: env
-      - run: sudo apt install tree
       - run: tree /run
+      - run: echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus >> $GITHUB_ENV
+      - run: env
       - run: systemctl --user status

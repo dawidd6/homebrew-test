@@ -22,5 +22,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - run: echo ${{github.event}}
     - name: Send greeting
       run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"

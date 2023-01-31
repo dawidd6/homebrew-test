@@ -9,12 +9,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: loginctl enable-linger $USER
-      - run: sleep 5s
-      - run: id -u
-      - run: sudo env
-      - run: ps aux | grep systemd
-      - run: tree /run
-      - run: echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus >> $GITHUB_ENV
-      - run: env
-      - run: systemctl --user status
+      - run: sudo snap list
+      - run: sudo snap install multipass
